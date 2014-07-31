@@ -3,5 +3,7 @@ if $::kernel == windows {
   Package { provider => chocolatey }
 }
 
-include fonts
-include tools
+node 'default' {
+  include fonts
+  include tools
+}

@@ -21,14 +21,9 @@ if (!(Test-Path $ChocoInstallPath)) {
   iex ((new-object net.webclient).DownloadString('http://chocolatey.org/install.ps1'))
 }
 
-# cinst wget java.jdk
-# cinst java.jdk -params 'x64=false'
+cinst git
+cinst puppet -Version 3.3.1
+(new-object net.webclient).DownloadFile("https://www.geotrust.com/resources/root_certificates/certificates/GeoTrust_Global_CA.pem", "C:\tmp\GeoTrust_Global_CA.pem")
+certutil -addstore Root C:\tmp\GeoTrust_Global_CA.pem
+puppet module install --force rismoney/chocolatey
 
-# $resourcesPath = 'c:\vagrantshared\resources'
-# $chocoPkgFile = get-childitem $resourcesPath -recurse -include 'chocolatey.*.nupkg' | select -First 1
-
-# if ($chocoPkgFile -ne $null) {
-#   cinst chocolatey -pre -force -source "$resourcesPath"
-# } else {
-#   cinst chocolatey -pre
-# }

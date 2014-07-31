@@ -1,30 +1,30 @@
 class fonts {
 
   package { "SourceCodePro":
-    ensure => "present"
+    ensure => "installed"
   }
 
   package { "ubuntu.font":
-    ensure => "present"
+    ensure => "installed"
   }
 
   package { "dejavufonts":
-    ensure => "present"
+    ensure => "installed"
   }
 
   package { "EnvyCodeR":
-    ensure => "present"
+    ensure => "installed"
   }
 
   package { "Inconsolata":
-    ensure => "present"
+    ensure => "installed"
   }
 
   package { "bitstreamverafonts":
-    ensure => "present"
+    ensure => "installed"
   }
 
   package { "DroidSansMono":
-    ensure => "present"
+    ensure => "installed"
   }
 }

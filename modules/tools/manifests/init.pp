@@ -1,50 +1,51 @@
 class tools {
 
   package { "ConEmu":
-    ensure => "present"
+    ensure => "installed"
   }
 
   package { "EthanBrown.ConEmuConfig":
-    ensure => "present"
+    ensure => "installed"
   }
 
   package { "BeyondCompare":
-    ensure => "present"
+    ensure => "installed"
   }
 
   package { "GoogleChrome":
-    ensure => "present"
+    ensure => "installed"
   }
 
   package { "linqpad4":
-    ensure => "present"
+    ensure => "installed"
   }
 
   package { "VisualStudio2013Professional":
-    ensure => "present"
+    install_options => '-InstallArguments "/Features:\'WebTools SQL\'"',
+    ensure => "installed"
   }
 
   package { "visualfsharptools":
-    ensure => "present"
+    ensure => "installed"
   }
 
   package { "VS2013.PowerTools":
-    ensure => "present"
+    ensure => "installed"
   }
 
   package { "editorconfig.vs":
-    ensure => "present"
+    ensure => "installed"
   }
 
   package { "resharper":
-    ensure => "present"
+    ensure => "installed"
   }
 
   package { "ncrunch2.vs2013":
-    ensure => "present"
+    ensure => "installed"
   }
 
   package { "vim":
-    ensure => "present"
+    ensure => "installed"
   }
 }

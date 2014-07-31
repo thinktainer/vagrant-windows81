@@ -21,6 +21,15 @@ if (!(Test-Path $ChocoInstallPath)) {
   iex ((new-object net.webclient).DownloadString('http://chocolatey.org/install.ps1'))
 }
 
+Write-Host "Checking existence of puppet in path"
+$puppetbinpath = "C:\Program Files (x86)\Puppet Labs\Puppet\bin"
+if (!$env:Path.ToLower().Contains($puppetbinpath.ToLower())) {
+    Write-Host "Adding puppet bin to path."
+    $currentPath = $env:Path
+    $newPath = $currentPath + ";" + $puppetbinpath
+    [System.Environment]::SetEnvironmentVariable('Path', $newPath,  [System.EnvironmentVariableTarget]::Process)
+    Write-Host "$env:Path"
+}
 cinst git
 cinst puppet -Version 3.3.1
 (new-object net.webclient).DownloadFile("https://www.geotrust.com/resources/root_certificates/certificates/GeoTrust_Global_CA.pem", "C:\tmp\GeoTrust_Global_CA.pem")

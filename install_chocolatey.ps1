@@ -30,7 +30,6 @@ if (!$env:Path.ToLower().Contains($puppetbinpath.ToLower())) {
     [System.Environment]::SetEnvironmentVariable('Path', $newPath,  [System.EnvironmentVariableTarget]::Process)
     Write-Host "$env:Path"
 }
-cinst git
 cinst puppet -Version 3.3.1
 (new-object net.webclient).DownloadFile("https://www.geotrust.com/resources/root_certificates/certificates/GeoTrust_Global_CA.pem", "C:\tmp\GeoTrust_Global_CA.pem")
 certutil -addstore Root C:\tmp\GeoTrust_Global_CA.pem

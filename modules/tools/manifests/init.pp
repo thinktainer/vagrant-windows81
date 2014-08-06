@@ -1,5 +1,13 @@
 class tools {
 
+  package { "git.install":
+    ensure => "installed"
+  }
+
+  package { "poshgit":
+    ensure => "installed"
+  }
+
   package { "ConEmu":
     ensure => "installed"
   }
@@ -25,11 +33,19 @@ class tools {
     ensure => "installed"
   }
 
+  package { "VS2013.3":
+    ensure => "installed"
+  }
+
   package { "visualfsharptools":
     ensure => "installed"
   }
 
   package { "VS2013.PowerTools":
+    ensure => "installed"
+  }
+
+  package { "stylecop":
     ensure => "installed"
   }
 
@@ -46,6 +62,10 @@ class tools {
   }
 
   package { "vim":
+    ensure => "installed"
+  }
+  
+  package { "dotPeek":
     ensure => "installed"
   }
 }

@@ -68,4 +68,8 @@ class tools {
   package { "dotPeek":
     ensure => "installed"
   }
+
+  package { "fiddler":
+    ensure => "installed"
+  }
 }

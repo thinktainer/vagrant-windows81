@@ -8,11 +8,7 @@ class tools {
     ensure => "installed"
   }
 
-  package { "ConEmu":
-    ensure => "installed"
-  }
-
-  package { "EthanBrown.ConEmuConfig":
+  package {"cmder":
     ensure => "installed"
   }
 
@@ -28,21 +24,24 @@ class tools {
     ensure => "installed"
   }
 
-  package { "VisualStudio2013Professional":
+  package { "VisualStudio2013ultimate":
     install_options => '-InstallArguments "/Features:\'WebTools SQL\'"',
     ensure => "installed"
   }
 
   package { "VS2013.3":
-    ensure => "installed"
+    ensure => "installed",
+    require => Package['VisualStudio2013ultimate']
   }
 
   package { "visualfsharptools":
-    ensure => "installed"
+    ensure => "installed",
+    require => Package['VisualStudio2013ultimate']
   }
 
   package { "VS2013.PowerTools":
-    ensure => "installed"
+    ensure => "installed",
+    require => Package['VisualStudio2013ultimate']
   }
 
   package { "stylecop":
@@ -50,21 +49,24 @@ class tools {
   }
 
   package { "editorconfig.vs":
-    ensure => "installed"
+    ensure => "installed",
+    require => Package['VisualStudio2013ultimate']
   }
 
   package { "resharper":
-    ensure => "installed"
+    ensure => "installed",
+    require => Package['VisualStudio2013ultimate']
   }
 
   package { "ncrunch2.vs2013":
-    ensure => "installed"
+    ensure => "installed",
+    require => Package['VisualStudio2013ultimate']
   }
 
   package { "vim":
     ensure => "installed"
   }
-  
+
   package { "dotPeek":
     ensure => "installed"
   }
@@ -72,4 +74,23 @@ class tools {
   package { "fiddler":
     ensure => "installed"
   }
+
+  package { "ilmerge":
+    ensure => "installed",
+    require => Package['VisualStudio2013ultimate']
+  }
+
+  package { "NugetPackageExplorer":
+    ensure => "installed"
+  }
+
+  package { "windbg":
+    ensure => "installed" }
+
+  package { "DotNetDeveloperBundle":
+    ensure => "installed" }
+
+  package { "dotTrace":
+    ensure => "installed" }
+
 }

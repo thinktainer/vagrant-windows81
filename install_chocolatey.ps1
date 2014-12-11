@@ -22,7 +22,7 @@ if (!(Test-Path $ChocoInstallPath)) {
 }
 
 Write-Host "Checking existence of puppet in path"
-$puppetbinpath = "C:\Program Files (x86)\Puppet Labs\Puppet\bin"
+$puppetbinpath = "C:\Program Files\Puppet Labs\Puppet\bin"
 if (!$env:Path.ToLower().Contains($puppetbinpath.ToLower())) {
     Write-Host "Adding puppet bin to path."
     $currentPath = $env:Path
@@ -30,8 +30,9 @@ if (!$env:Path.ToLower().Contains($puppetbinpath.ToLower())) {
     [System.Environment]::SetEnvironmentVariable('Path', $newPath,  [System.EnvironmentVariableTarget]::Process)
     Write-Host "$env:Path"
 }
-cinst puppet -Version 3.3.1
+cinst puppet
 (new-object net.webclient).DownloadFile("https://www.geotrust.com/resources/root_certificates/certificates/GeoTrust_Global_CA.pem", "C:\tmp\GeoTrust_Global_CA.pem")
 certutil -addstore Root C:\tmp\GeoTrust_Global_CA.pem
+#$env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine")
 puppet module install --force rismoney/chocolatey
 

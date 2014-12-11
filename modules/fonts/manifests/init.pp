@@ -1,6 +1,6 @@
 class fonts {
 
-  package { "SourceCodePro":
+  package { "sourcecodepro":
     ensure => "installed"
   }
 
@@ -12,7 +12,7 @@ class fonts {
     ensure => "installed"
   }
 
-  package { "EnvyCodeR":
+  package { "envycoder":
     ensure => "installed"
   }
 

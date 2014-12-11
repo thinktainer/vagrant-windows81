@@ -4,6 +4,6 @@ if $::kernel == windows {
 }
 
 node 'default' {
-  include fonts
   include tools
+  include fonts
 }

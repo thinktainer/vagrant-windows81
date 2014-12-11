@@ -7,6 +7,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "w81"
+  config.vm.guest = :windows
   config.vm.communicator = "winrm"
   config.vm.provision :shell, path: "install_chocolatey.ps1"
   #config.vm.provision :shell, inline: "cinst git"

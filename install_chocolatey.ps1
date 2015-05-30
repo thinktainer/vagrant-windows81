@@ -30,9 +30,9 @@ if (!$env:Path.ToLower().Contains($puppetbinpath.ToLower())) {
     [System.Environment]::SetEnvironmentVariable('Path', $newPath,  [System.EnvironmentVariableTarget]::Process)
     Write-Host "$env:Path"
 }
-cinst puppet
+cinst -y puppet
 (new-object net.webclient).DownloadFile("https://www.geotrust.com/resources/root_certificates/certificates/GeoTrust_Global_CA.pem", "C:\tmp\GeoTrust_Global_CA.pem")
 certutil -addstore Root C:\tmp\GeoTrust_Global_CA.pem
 #$env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine")
-puppet module install --force rismoney/chocolatey
+puppet module install --force chocolatey/chocolatey
 
